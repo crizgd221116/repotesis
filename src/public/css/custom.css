@@ -62,5 +62,7 @@ nav h4 {
 .backgroundimg {
     background-image: url("/images/weather.jpg");
     background-repeat: no-repeat;
-    background-size: 1920px;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
