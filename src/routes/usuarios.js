@@ -13,4 +13,10 @@ router.get('/users/recovery', (req, res) => {
 router.get('/users/passwdr', (req, res) => {
     res.render('users/contraseña.hbs');
 });
+router.get('/users/editinfo', (req, res) => {
+    res.render('users/editinfo.hbs');
+});
+router.get('/users/invest', (req, res) => {
+    res.render('users/investigador.hbs');
+});
 module.exports = router;
