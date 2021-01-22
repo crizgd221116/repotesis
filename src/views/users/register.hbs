@@ -9,22 +9,22 @@
           <div class="form-title text-center" >
             <h4 style="font-weight: 800;"> Registro</h4>
           </div>
-          <form class="formulario-registro">  
+          <form class="formulario-registro" action="/users/register" method="POST">  
             <div class="form-group">
-              <label for="exampleInputEmail1">Nombres </label>
-              <input type="nombres" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="nombres">Nombres </label>
+              <input type="nombres" class="form-control" id="nombres" name="name"  value="{{name}}">
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Correo </label>
-                <input type="correo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="correo" class="form-control" id="exampleInputEmail1" name="email" value="{{email}}">
               </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="{{password}}">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Confirmación contraseña</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label for="confpass">Confirmación contraseña</label>
+                <input type="password" class="form-control" id="confpass" name="confirmPassword" value="{{confirmPassword}}">
               </div>
             <button type="submit" class="btn btn-success btn-block">Acceder</button>
           </form>
