@@ -1,35 +1,34 @@
 <body class="backgroundimg">
-  
-<div class="container-fluid" >
-      <div class="row">
-        <!--<div class=".col-md-4 col-sm-4 col-xs-12 ">  <img src="/images/weather.jpg" class="mt-5 backgroundimg"  style="margin-left: 10px;" alt=""></div > -->
-        <div class=".col-md-7 col-sm-7 col-xs-12"></div> 
-        
-        <div class=".col-md-4 col-sm-4 col-xs-12">
-          <div class="form-title text-center" >
-            <h4 style="font-weight: 800;"> Registro</h4>
+  <div class="container-fluid">
+    <div class="row">
+      <!--<div class=".col-md-4 col-sm-4 col-xs-12 ">  <img src="/images/weather.jpg" class="mt-5 backgroundimg"  style="margin-left: 10px;" alt=""></div > -->
+      <div class=".col-md-4 col-sm-4 col-xs-12"></div>
+      <div class=".col-md-4 col-sm-4 col-xs-12">
+        <div class="form-title text-center">
+          <h4 style="font-weight: 800;"> Registro</h4>
+        </div>
+        <form class="formulario" action="/users/register" method="POST">
+          <div class="form-group">
+            <label for="nombres">Nombres </label>
+            <input type="nombres" class="form-control" id="nombres" name="name" value="{{name}}">
           </div>
-          <form class="formulario-registro" action="/users/register" method="POST">  
-            <div class="form-group">
-              <label for="nombres">Nombres </label>
-              <input type="nombres" class="form-control" id="nombres" name="name"  value="{{name}}">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputEmail1">Correo </label>
-                <input type="correo" class="form-control" id="exampleInputEmail1" name="email" value="{{email}}">
-              </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="{{password}}">
-            </div>
-            <div class="form-group">
-                <label for="confpass">Confirmación contraseña</label>
-                <input type="password" class="form-control" id="confpass" name="confirmPassword" value="{{confirmPassword}}">
-              </div>
-            <button type="submit" class="btn btn-success btn-block">Crear cuenta</button>
-          </form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo </label>
+            <input type="correo" class="form-control" id="exampleInputEmail1" name="email" value="{{email}}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="{{password}}">
+          </div>
+          <div class="form-group">
+            <label for="confpass">Confirmación contraseña</label>
+            <input type="password" class="form-control" id="confpass" name="confirmPassword"
+              value="{{confirmPassword}}">
+          </div>
+          <button type="submit" class="btn btn-success btn-block">Crear cuenta</button>
+        </form>
 
-        </div> 
       </div>
     </div>
+  </div>
 </body>
