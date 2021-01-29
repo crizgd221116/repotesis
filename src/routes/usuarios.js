@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-
+const {isAuthenticated}=require('../helpers/auth')
 const User = require('../models/User');
 const passport = require('passport');
+
 router.get('/users/signin', (req, res) => {
     res.render('users/login.hbs');
 });
@@ -58,10 +59,21 @@ router.get('/users/recovery', (req, res) => {
 router.get('/users/passwdr', (req, res) => {
     res.render('users/contraseña.hbs');
 });
-router.get('/users/editinfo', (req, res) => {
-    res.render('users/editinfo.hbs');
+
+//Editar informacion
+router.get('/users/editinfo',isAuthenticated,async (req, res) => {
+        res.render('users/editinfo.hbs');
 });
-router.get('/users/invest', (req, res) => {
+router.get('/users/invest',isAuthenticated ,(req, res) => {
     res.render('users/investigador.hbs');
+});
+//Cerrar sesión
+router.get('/users/logout',(req,res)=>{
+req.logout();
+res.redirect('/');
+});
+//Ruta subir datos remmaq
+router.get('/users/datosremmaq',isAuthenticated,async (req, res) => {
+    res.render('users/datosremmaq.hbs');
 });
 module.exports = router;

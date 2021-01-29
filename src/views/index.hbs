@@ -36,7 +36,10 @@
                         </select>
                         <script>
                             $(document).ready(function () {
-                                $('.js-example-basic-single').select2();
+                                $(".js-example-placeholder-single").select2({
+                                    placeholder: "Buscar...",
+                                    allowClear: true
+                                });
                             });
                         </script>
                     </div>

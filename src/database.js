@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/repositoriodb',{
     useCreateIndex:true,
+    useUnifiedTopology: true,
     useNewUrlParser:true,
     useFindAndModify:false
 })
