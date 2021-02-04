@@ -1,5 +1,5 @@
-<div class="card-deck" style="margin-top: 180px; margin-left: 20px;margin-right: 20px;">
-        <div class="card" style="cursor: pointer;">
+<div class="card-deck hover" style="margin-top: 180px; margin-left: 20px;margin-right: 20px;">
+        <div class="card" id="remmaq" style="cursor: pointer;">
             <center>
             <img src="/images/remmaq.png" style="width: 230px;padding: 30px; margin-top: 10px;" alt="remmaq">
             <div class="card-body">
@@ -9,7 +9,7 @@
             </div>
             </center>
         </div>
-        <div class="card" style="cursor: pointer;">
+        <div class="card" id="inamhi" style="cursor: pointer;">
             <center>
             <img src="/images/inamhi.png" style="width: 230px;padding: 30px; margin-top: 10px" alt="INAMHI">
             <div class="card-body">
@@ -19,7 +19,7 @@
             </div>
             </center>
         </div>
-        <div class="card" style="cursor: pointer;">
+        <div class="card" id="hist" style="cursor: pointer;">
             <center>
             <img src="/images/historial.png" style="width: 160px;padding: 30px;" alt="historial">
             <div class="card-body">
@@ -40,8 +40,24 @@
             </center>
         </div>
         <script>
+        document.getElementById("remmaq").onclick = function (){
+            window.location.href = "/users/uploadrem"
+        }
+        </script>
+        <script>
+        document.getElementById("inamhi").onclick = function (){
+            window.location.href = "/users/uploadin"
+        }
+        </script>
+        <script>
+        document.getElementById("hist").onclick = function (){
+            window.location.href = "/users/hist"
+        }
+        </script>        
+        <script>
         document.getElementById("edit").onclick = function (){
             window.location.href = "/users/editinfo"
         }
         </script>
+        
     </div>

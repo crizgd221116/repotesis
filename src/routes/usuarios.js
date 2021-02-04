@@ -64,4 +64,10 @@ router.get('/users/editinfo', (req, res) => {
 router.get('/users/invest', (req, res) => {
     res.render('users/investigador.hbs');
 });
+router.get('/users/uploadrem', (req, res) => {
+    res.render('users/datosremmaq.hbs');
+});
+router.get('/users/uploadin', (req, res) => {
+    res.render('users/datosinamhi.hbs');
+});
 module.exports = router;
