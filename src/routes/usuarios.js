@@ -6,7 +6,7 @@ const passport = require('passport');
 router.get('/users/signin', (req, res) => {
     res.render('users/login.hbs');
 });
-router.post('/users/signin', passport.authenticate('local', {
+router.post('/users/signin', passport.authenticate('local-login', {
     successRedirect: '/users/invest',
     failureRedirect: '/users/signin',
     failureFlash: true
@@ -51,17 +51,20 @@ router.post('/users/register', async(req, res) => {
         //res.send('OK');
     }
 });
-
+router.get('/users/logout',(req,res,next)=>{
+    req.logout();
+    res.redirect('/');
+});
 router.get('/users/recovery', (req, res) => {
     res.render('users/recuperar.hbs');
 });
 router.get('/users/passwdr', (req, res) => {
     res.render('users/contraseña.hbs');
 });
-router.get('/users/editinfo', (req, res) => {
+router.get('/users/editinfo',isAuthenticated, (req, res) => {
     res.render('users/editinfo.hbs');
 });
-router.get('/users/invest', (req, res) => {
+router.get('/users/invest',isAuthenticated, (req, res) => {
     res.render('users/investigador.hbs');
 });
 router.get('/users/uploadrem', (req, res) => {
@@ -70,4 +73,10 @@ router.get('/users/uploadrem', (req, res) => {
 router.get('/users/uploadin', (req, res) => {
     res.render('users/datosinamhi.hbs');
 });
+function isAuthenticated(req,res,next) {
+    if (req.isAuthenticated()) {
+        return next();
+    } 
+    res.redirect('/');
+}
 module.exports = router;

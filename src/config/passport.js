@@ -2,7 +2,16 @@ const passport = require('passport');
 const localStrategy = require('passport-local').Strategy ;
 const User = require('../models/User');
 
-passport.use(new localStrategy({
+passport.serializeUser((user,done)=>{
+done(null,user.id);
+});
+
+passport.deserializeUser(async(id,done)=>{
+    const user = await User.findById(id,(err,user)=>{
+    done(err,user);
+    });
+});
+passport.use('local-login',new localStrategy({
     usernameField:'email'
 },async (email,password,done)=>{
     const user = await User.findOne({email:email});
@@ -16,15 +25,6 @@ passport.use(new localStrategy({
             return done(null,false,{message:'Contraseña incorrecta'});
         }
     }
+    done(null,user);
 }
 ));
-
-passport.serializeUser((user,done)=>{
-done(null,user.id);
-});
-
-passport.deserializeUser((id,done)=>{
-    User.findById(id,(err,user)=>{
-        done(err,user);
-    });
-})
