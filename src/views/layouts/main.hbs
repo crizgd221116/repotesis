@@ -32,10 +32,11 @@
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Hola!{{user.email}}
+          Hola! {{user.name}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/users/editinfo/{{user.id}}">Editar Perfil</a>
+          <a class="dropdown-item" href="/users/editinfo">Editar Perfil</a>
+          <a class="dropdown-item" href="/users/invest">Investigador</a>
           <a class="dropdown-item" href="/users/logout">Logout</a>
         </div>
       </div>
