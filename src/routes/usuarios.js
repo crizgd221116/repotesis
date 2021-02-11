@@ -51,7 +51,7 @@ router.post('/users/register', async(req, res) => {
         //res.send('OK');
     }
 });
-router.get('/users/logout',(req,res,next)=>{
+router.get('/users/logout', (req, res, next) => {
     req.logout();
     res.redirect('/');
 });
@@ -61,10 +61,10 @@ router.get('/users/recovery', (req, res) => {
 router.get('/users/passwdr', (req, res) => {
     res.render('users/contraseña.hbs');
 });
-router.get('/users/editinfo',isAuthenticated, (req, res) => {
+router.get('/users/editinfo', isAuthenticated, (req, res) => {
     res.render('users/editinfo.hbs');
 });
-router.get('/users/invest',isAuthenticated, (req, res) => {
+router.get('/users/invest', isAuthenticated, (req, res) => {
     res.render('users/investigador.hbs');
 });
 router.get('/users/uploadrem', (req, res) => {
@@ -73,10 +73,14 @@ router.get('/users/uploadrem', (req, res) => {
 router.get('/users/uploadin', (req, res) => {
     res.render('users/datosinamhi.hbs');
 });
-function isAuthenticated(req,res,next) {
+router.get('/users/hist', (req, res) => {
+    res.render('users/historial.hbs');
+});
+
+function isAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next();
-    } 
+    }
     res.redirect('/');
 }
 module.exports = router;

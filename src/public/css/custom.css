@@ -80,12 +80,12 @@ nav h4 {
     /*margin-bottom: 20px;*/
 }
 
-.card-title-carrera i:hover {
+.card-title-invest i:hover {
     transform: scale(1.25) rotate(100deg);
     color: #18d4ca;
 }
 
-.card-carrera:hover {
+.card-invest:hover {
     transform: scale(1.05);
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
 }
@@ -96,8 +96,8 @@ nav h4 {
   }
    */
 
-.card-carrera::before,
-.card-carrera::after {
+.card-invest::before,
+.card-invest::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -110,17 +110,26 @@ nav h4 {
     pointer-events: none;
 }
 
-.card-carrera::before {
+.card-invest::before {
     transform-origin: left top;
 }
 
-.card-carrera::after {
+.card-invest::after {
     transform-origin: right bottom;
 }
 
-.card-carrera:hover::before,
-.card-carrera:hover::after,
-.card-carrera:focus::before,
-.card-carrera:focus::after {
+.card-invest:hover::before,
+.card-invest:hover::after,
+.card-invest:focus::before,
+.card-invest:focus::after {
     transform: scale3d(1, 1, 1);
 }
+
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+
+/* First border-left-width setting is a fallback */
