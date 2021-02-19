@@ -5,25 +5,25 @@
       <div class=".col-md-4 col-sm-4 col-xs-12"></div>
       <div class=".col-md-4 col-sm-4 col-xs-12">
         <div class="form-title text-center">
-          <h4 style="font-weight: 800;"> Registro</h4>
+          <h4 style="font-weight: 800;"> Registro</h4>          
+
         </div>
         <form class="formulario" action="/users/register" method="POST">
           <div class="form-group">
             <label for="nombres">Nombres </label>
-            <input type="nombres" class="form-control" id="nombres" name="name" value="{{name}}">
+            <input type="name" class="form-control" id="name" name="name" value="{{name}}">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Correo </label>
-            <input type="correo" class="form-control" id="exampleInputEmail1" name="email" value="{{email}}">
+            <input type="email" class="form-control" id="email" name="email" value="{{email}}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Contraseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="{{password}}">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" value="{{password}}">
           </div>
           <div class="form-group">
             <label for="confpass">Confirmación contraseña</label>
-            <input type="password" class="form-control" id="confpass" name="confirmPassword"
-              value="{{confirmPassword}}">
+            <input type="password" class="form-control" id="password2" name="password2" value="{{confirmPassword}}">
           </div>
           <button type="submit" class="btn btn-success btn-block">Crear cuenta</button>
         </form>

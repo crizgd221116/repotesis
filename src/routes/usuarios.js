@@ -1,79 +1,59 @@
 const express = require('express');
 const router = express.Router();
 
-const User = require('../models/User');
-const passport = require('passport');
-router.get('/users/signin', (req, res) => {
-    res.render('users/login.hbs');
-});
-router.post('/users/signin', passport.authenticate('local-login', {
-    successRedirect: '/users/invest',
-    failureRedirect: '/users/signin',
-    failureFlash: true
-}));
+//------------ Importing Controllers ------------//
+const authController = require('../controllers/authController')
 
+//------------ Login Route ------------//
+router.get('/users/login', (req, res) => res.render('users/login.hbs'));
 
-/*Registro*/
-router.get('/users/register', (req, res) => {
-    res.render('users/register.hbs');
-});
-router.post('/users/register', async(req, res) => {
-    const { name, email, password, confirmPassword } = req.body;
-    const errors = [];
-    console.log(req.body);
-    if (name.length <= 0) {
-        errors.push({ text: 'Por favor ingresa la contraseña' });
-    }
-    if (password != confirmPassword) {
-        errors.push({ text: 'Las contraseñas no coinciden' })
-    }
-    if (password.length < 4) {
-        errors.push({ text: 'la contraseña debe tener al menos 4 caracteres' })
-    }
-    if (errors.length > 0) {
-        res.render('users/register.hbs', { errors, name, email, password, confirmPassword });
+//------------ Forgot Password Route ------------//
+router.get('/users/recuperar', (req, res) => res.render('users/recuperar.hbs'));
 
-    } else {
-        /*Validar emai repetido*/
-        const emailUser = await User.findOne({ email: email });
-        if (emailUser) {
-            req.flash('error_msg', 'Este correo ya esta registrado');
-            res.redirect('/users/register');
-        }
+//------------ Reset Password Route ------------//
+router.get('/users/contrasena/:id', (req, res) => {
+    res.render('users/contrasena.hbs', { id: req.params.id });
+});
 
+//------------ Register Route ------------//
+router.get('/users/register', (req, res) => res.render('users/register.hbs'));
 
-        const newUser = new User({ name, email, password });
-        newUser.password = await newUser.encryptPassword(password);
-        await newUser.save();
-        req.flash('success_msg', 'Estas registrado');
-        res.redirect('/users/signin');
+//------------ Register POST Handle ------------//
+router.post('/users/register', authController.registerHandle);
 
-        //res.send('OK');
-    }
-});
-router.get('/users/logout', (req, res, next) => {
-    req.logout();
-    res.redirect('/');
-});
-router.get('/users/recovery', (req, res) => {
-    res.render('users/recuperar.hbs');
-});
-router.get('/users/passwdr', (req, res) => {
-    res.render('users/contraseña.hbs');
-});
-router.get('/users/editinfo', isAuthenticated, (req, res) => {
+//------------ Email ACTIVATE Handle ------------//
+//router.get('users/activate/:token', authController.activateHandle);
+
+router.get('/activate/:token', authController.activateHandle);
+
+//------------ Forgot Password Handle ------------//
+router.post('/users/recuperar', authController.forgotPassword);
+
+//------------ Reset Password Handle ------------//
+router.post('/users/contrasena/:id', authController.resetPassword);
+
+//------------ Reset Password Handle ------------//
+router.get('/users/recuperar/:token', authController.gotoReset);
+
+//------------ Login POST Handle ------------//
+router.post('/users/login', authController.loginHandle);
+
+//------------ Logout GET Handle ------------//
+router.get('/users/logout', authController.logoutHandle);
+
+router.get('/users/editinfo/:id', isAuthenticated, (req, res) => {
     res.render('users/editinfo.hbs');
 });
 router.get('/users/invest', isAuthenticated, (req, res) => {
     res.render('users/investigador.hbs');
 });
-router.get('/users/uploadrem', (req, res) => {
+router.get('/users/uploadrem', isAuthenticated, (req, res) => {
     res.render('users/datosremmaq.hbs');
 });
-router.get('/users/uploadin', (req, res) => {
+router.get('/users/uploadin', isAuthenticated, (req, res) => {
     res.render('users/datosinamhi.hbs');
 });
-router.get('/users/hist', (req, res) => {
+router.get('/users/hist', isAuthenticated, (req, res) => {
     res.render('users/historial.hbs');
 });
 
@@ -83,4 +63,5 @@ function isAuthenticated(req, res, next) {
     }
     res.redirect('/');
 }
+
 module.exports = router;

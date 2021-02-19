@@ -7,10 +7,10 @@
             <div class="form-title text-center">
                 <h4 style="font-weight: 800;"> Restablecer contraseña </h4>
             </div>
-            <form class="formulario">
+            <form class="formulario" action="/users/recuperar" method="POST">
                 <div class="form-group">
                     <label for="exampleInputEmail1"> Ingrese el correo electrónico con el que registró en el sistema </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
 
 
@@ -18,20 +18,7 @@
 
 
 
-                <script>
-                    document.getElementById("enviar").onclick = function() {
-                        myFunction()
-                    };
-
-                    function myFunction() {
-                        Swal.fire({
-                            title: 'success!',
-                            text: 'Do you want to continue',
-                            icon: 'success',
-                            confirmButtonText: 'Cool'
-                        })
-                    }
-                </script>
+               
 
 
             </form>
