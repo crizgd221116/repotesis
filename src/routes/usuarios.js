@@ -1,38 +1,38 @@
 const express = require('express');
 const router = express.Router();
 
-//------------ Importing Controllers ------------//
+//------------ Importar controladores  ------------//
 const authController = require('../controllers/authController')
 
-//------------ Login Route ------------//
+//------------ ruta login------------//
 router.get('/users/login', (req, res) => res.render('users/login.hbs'));
 
-//------------ Forgot Password Route ------------//
+//------------ recuperar contraseña ------------//
 router.get('/users/recuperar', (req, res) => res.render('users/recuperar.hbs'));
 
-//------------ Reset Password Route ------------//
+//------------ restablecer ------------//
 router.get('/users/contrasena/:id', (req, res) => {
     res.render('users/contrasena.hbs', { id: req.params.id });
 });
 
-//------------ Register Route ------------//
+//------------ registro ------------//
 router.get('/users/register', (req, res) => res.render('users/register.hbs'));
 
-//------------ Register POST Handle ------------//
+//------------ Register POST  ------------//
 router.post('/users/register', authController.registerHandle);
 
-//------------ Email ACTIVATE Handle ------------//
+//------------ Email Activación ------------//
 //router.get('users/activate/:token', authController.activateHandle);
 
 router.get('/activate/:token', authController.activateHandle);
 
-//------------ Forgot Password Handle ------------//
+//------------ recuperar contraseña validación ------------//
 router.post('/users/recuperar', authController.forgotPassword);
 
-//------------ Reset Password Handle ------------//
+//------------ restablecer contraseña datos ------------//
 router.post('/users/contrasena/:id', authController.resetPassword);
 
-//------------ Reset Password Handle ------------//
+//------------ recuperar contraseña token ------------//
 router.get('/users/recuperar/:token', authController.gotoReset);
 
 //------------ Login POST Handle ------------//
