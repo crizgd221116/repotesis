@@ -41,7 +41,7 @@ router.post('/users/login', authController.loginHandle);
 //------------ Logout GET Handle ------------//
 router.get('/users/logout', authController.logoutHandle);
 
-router.get('/users/editinfo/:id', isAuthenticated, (req, res) => {
+router.get('/users/editinfo', isAuthenticated, (req, res) => {
     res.render('users/editinfo.hbs');
 });
 router.get('/users/invest', isAuthenticated, (req, res) => {

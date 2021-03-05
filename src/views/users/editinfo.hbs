@@ -1,4 +1,4 @@
-<body class="backgroundimg">
+
     <div class="container-fluid" style="margin-bottom: 110px;">
         <div class="row">
             <div class=".col-md-4 col-sm-4 col-xs-12"></div>
@@ -8,6 +8,7 @@
                     <h4 style="font-weight: 800;"> Editar Perfil</h4>
                 </div>
                 <form class="formulario" action="/users/editinfo/{{user.id}}?_method=PUT" class="formulario">
+                
                 <input type="hidden" name="_method" value="PUT">
                     <div class="form-group">
                         <label for="textonom">Nombre </label>
@@ -80,4 +81,3 @@
             </div>
         </div>
     </div>
-</body>
