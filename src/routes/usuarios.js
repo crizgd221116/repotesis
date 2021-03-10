@@ -38,7 +38,7 @@ router.post('/users/register', async(req, res) => {
         const emailUser = await User.findOne({ email: email });
         if (emailUser) {
             req.flash('error_msg', 'Este correo ya esta registrado');
-            res.redirect('/users/register');
+            res.redirect('/users/register');    
         }
 
 
@@ -61,7 +61,19 @@ router.get('/users/recovery', (req, res) => {
 router.get('/users/passwdr', (req, res) => {
     res.render('users/contraseña.hbs');
 });
-router.get('/users/editinfo',isAuthenticated, (req, res) => {
+router.get('/users/editar/:id',isAuthenticated,async (req, res) => {
+    const userAuth = await User.findById(req.params.id);
+    res.render('users/editinfo.hbs',{userAuth});
+});
+
+router.put('/users/editinfo/:id',async(req,res)=>{
+    const {/*genero,titulo,ocupacion,description*/name,email,genero,titulo,ocupacion,description} = req.body;
+    console.log(req.body);
+    await User.findOneAndUpdate(/*req.params.id,{/*genero,titulo,ocupacion,descriptionname,email}*/
+        { _id: req.params.id },
+        { $set: req.body },
+        { new: true }
+        );
     res.render('users/editinfo.hbs');
 });
 router.get('/users/invest',isAuthenticated, (req, res) => {

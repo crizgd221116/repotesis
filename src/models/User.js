@@ -6,7 +6,11 @@ const UserSchema = new Schema({
 name:{ type: String, required: true },
 email:{ type: String, required:true },
 password:{ type: String, required:true },
-date:{ type:  Date, default: Date.now }
+date:{ type:  Date, default: Date.now },
+genero:{type:String,default:'M'},
+titulo:{type:String,default:'Ing'},
+ocupacion:{type:String,default:'Por definir'},
+description:{type:String,default:'Añadir desc'}
 });
 //Cifrar contraseñas
 UserSchema.methods.encryptPassword = async(password)=>{
