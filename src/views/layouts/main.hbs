@@ -32,7 +32,7 @@
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Hola! {{user.name}}
+          ¡Hola! {{user.name}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="/users/editar/{{user.id}}">Editar Perfil</a>
@@ -42,7 +42,7 @@
       </div>
       {{else}}
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-info" style="margin-right: 6px;" href="/users/signin">Iniciar Sesión </a>
+        <a class="btn btn-info" style="margin-right: 6px;" href="/users/login">Iniciar Sesión </a>
         <a class="btn btn-info" href="/users/register">Registro</a>
       </form>
       {{/if}}
@@ -66,20 +66,22 @@
 
 </body>
 
-<footer id="sticky-footer" class="py-3 bg-dark text-white-50 fixed-bottom">
+<footer id="sticky-footer" class="py-3 bg-dark text-white-50 fixed-bottom"  ">
   <div class="container text-center">
     <small style="font-size: medium;">Desarrollado por Estudiantes de la Universidad Politécnica Salesiana <img
         src="/images/footerimage.png" width="30px" style="margin-left: 5px;" alt="ups"></small>
   </div>
   <div class="container text-center">
     <a href="mailto:jcastillov1@est.ups.edu.ec" style="font-weight: bold; font-size: medium;">Jonathan Castillo -</a>
-    <a href="mailto:csalazarc1@est.ups.edu.ec" style="font-weight: bold; font-size: medium;">Cristhian Salazar</a>
+    <a href="mailto:csalazarc1@est.ups.edu.ec" style="font-weight: bold; font-size: medium;"> Cristhian Salazar</a>
   </div>
   <div class="container text-center">
     <small style="font-size: medium;">Derechos Reservados &copy; 2021</small>
   </div>
 
 </footer>
+
+
 
 
 
